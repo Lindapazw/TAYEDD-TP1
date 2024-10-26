@@ -8,7 +8,6 @@ Este trabajo práctico implementa varias funcionalidades utilizando estructuras 
 
 - Tener instalado Java JDK 8 o superior.
 - Un editor de texto o IDE (como Visual Studio Code, IntelliJ IDEA, Eclipse) para compilar y ejecutar el código.
-- Familiaridad básica con la programación orientada a objetos y estructuras de datos como grafos y árboles.
 
 ## Estructura del Proyecto
 
