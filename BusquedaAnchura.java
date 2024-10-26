@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,37 +44,19 @@ public class BusquedaAnchura {
         }
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Distancias desde el nodo inicial:\n");
-
-        for (Map.Entry<Integer, Integer> entry : distanciaMinima.entrySet()) {
-            sb.append("Al Nodo " + (entry.getKey() + 1) + ": " + entry.getValue() + ", ruta: "
-                    + mostrarRuta(entry.getKey()) + "\n");
+    public List<Integer> obtenerRuta(int destino) {
+        List<Integer> ruta = new ArrayList<>();
+        for (Integer nodo = destino; nodo != null; nodo = predecesores.get(nodo)) {
+            ruta.add(nodo);
         }
-
-        sb.append("Nodos recorridos: ");
-        for (Integer nodo : nodosRecorridos) {
-            sb.append((nodo + 1) + " ");
-        }
-
-        return sb.toString();
+        return ruta;
     }
 
-    public String mostrarRuta(int destino) {
-        if (!distanciaMinima.containsKey(destino)) {
-            return "[]";
-        }
+    public Map<Integer, Integer> obtenerDistancias() {
+        return distanciaMinima;
+    }
 
-        List<Integer> ruta = new ArrayList<>();
-
-        for (Integer nodo = destino; nodo != null; nodo = predecesores.get(nodo)) {
-            ruta.add(nodo + 1);
-        }
-
-        Collections.reverse(ruta);
-
-        return ruta.toString().replaceAll(",", " ->");
+    public List<Integer> obtenerNodosRecorridos() {
+        return nodosRecorridos;
     }
 }
