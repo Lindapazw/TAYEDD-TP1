@@ -26,10 +26,10 @@ public class GrafoMatriz {
 
         for (int i = 0; i < numVertices; i++) {
             if (!visitado[i] && tieneCiclo(i, visitado, enCamino)) {
-                return false;
+                return false;  // Si encuentra un ciclo, el grafo no es acíclico
             }
         }
-        return true;
+        return true;  // Si no encuentra ningún ciclo, el grafo es acíclico
     }
 
     @Override
@@ -46,8 +46,8 @@ public class GrafoMatriz {
     }
 
     private boolean tieneCiclo(int nodo, boolean[] visitado, boolean[] enCamino) {
-        if (enCamino[nodo]) return true;
-        if (visitado[nodo]) return false;
+        if (enCamino[nodo]) return true;  // Si el nodo ya está en el camino actual, hay un ciclo
+        if (visitado[nodo]) return false; // Si el nodo ya fue visitado pero no está en el camino actual, no hay ciclo
 
         visitado[nodo] = true;
         enCamino[nodo] = true;
@@ -58,7 +58,7 @@ public class GrafoMatriz {
             }
         }
 
-        enCamino[nodo] = false;
+        enCamino[nodo] = false;  // Eliminamos el nodo del camino actual antes de regresar
         return false;
     }
 }

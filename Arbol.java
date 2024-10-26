@@ -34,4 +34,17 @@ public class Arbol {
         padre.getHijos().add(hijo);
         return hijo;
     }
+
+    public void imprimirArbol() {
+        imprimirArbol(raiz, "");
+    }
+
+    private void imprimirArbol(NodoArbol nodo, String prefijo) {
+        if (nodo == null) return;
+        System.out.println(prefijo + "└─ " + nodo.getValor());
+        for (int i = 0; i < nodo.getHijos().size(); i++) {
+            NodoArbol hijo = nodo.getHijos().get(i);
+            imprimirArbol(hijo, prefijo + (i == nodo.getHijos().size() - 1 ? "   " : "│  "));
+        }
+    }
 }

@@ -19,7 +19,7 @@ public class AlgoritmoDijkstra {
     public AlgoritmoDijkstra(int vertices) {
         this.vertices = vertices;
         matrizAdyacencia = new int[vertices][vertices];
-        for (int[] fila : matrizAdyacencia) Arrays.fill(fila, Integer.MAX_VALUE);
+        for (int[] fila : matrizAdyacencia) Arrays.fill(fila, Integer.MAX_VALUE); // Inicializamos la matriz en infinito
     }
 
     public void agregarArco(int origen, int destino, int peso) {
